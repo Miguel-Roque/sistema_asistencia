@@ -1,0 +1,22 @@
+p{
+    margin: 0;
+    padding: 0;
+}
+.reloj{
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-0%,-50%);
+    text-shadow: 0 0 20px rgba(17, 230, 220), 0 0 10px rgba(17, 230, 220) ;
+}
+.tiempo{
+    letter-spacing: 0.05em;
+    font-size: 80px;
+    padding: 5px 0;
+}
+.fecha{
+    letter-spacing: 0.1em;
+    font-size: 24px;
+}
+
