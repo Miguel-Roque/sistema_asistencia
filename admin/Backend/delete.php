@@ -2,12 +2,12 @@
 
   include('../includes/conn.php');
 
-  if (isset($_GET))
+  if (isset($_POST))
    {
   	$id=0;
   	$ruta='';
-  	$id=$_GET['id'];
-  	$ruta=$_GET['ruta'];
+  	$id=$_POST['id'];
+  	$ruta=$_POST['ruta'];
   	$sql="DELETE FROM imagenes WHERE id = '".$id."'";
   	$res = mysqli_query($conn,$sql);
   	if ($res) 
