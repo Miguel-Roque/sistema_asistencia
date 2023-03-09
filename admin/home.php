@@ -162,7 +162,25 @@
             </div>
           </div>
         </div>
-      <div class="col-xs-6">
+        <div class="col-xs-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Informe de asistencia por area de trabajo</h3>
+              <div class="box-tools pull-right">
+                <form class="form-inline">
+                </form>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <br>
+                <div id="legend" class="text-center"></div>
+                <canvas id="barChart" style="height:350px"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-xs-12">
           <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Informe de Asistencia</h3>
