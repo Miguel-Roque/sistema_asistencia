@@ -7,7 +7,7 @@ header("content-Disposition: attachment; filename = Control de Asistencia NHL.xl
 
 <?php include 'includes/session.php'; ?>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple-light sidebar-mini">
 <div class="wrapper">
 
 
