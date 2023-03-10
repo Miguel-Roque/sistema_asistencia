@@ -5,7 +5,7 @@
   $range_from = date('m/d/Y', strtotime('-30 day', strtotime($range_to)));
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-purple-light sidebar-mini">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
