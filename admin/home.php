@@ -162,25 +162,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-6">
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Informe de asistencia por area de trabajo</h3>
-              <div class="box-tools pull-right">
-                <form class="form-inline">
-                </form>
-              </div>
-            </div>
-            <div class="box-body">
-              <div class="chart">
-                <br>
-                <div id="legend" class="text-center"></div>
-                <canvas id="barChart" style="height:350px"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      <div class="col-xs-12">
+      <div class="col-xs-6">
           <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Informe de Asistencia</h3>
@@ -263,10 +245,12 @@
   $months = array();
   $ontime = array();
   $late = array();
-  $aftertime= array();
+
+
+
 
   for( $m = 1; $m <= 12; $m++ ) {
-    $sql = "SELECT * FROM attendance WHERE MONTH(date) = '$m' AND status = 1 $and";
+    $sql = "SELECT * FROM attendance  WHERE MONTH(date) = '$m' AND status = 1 $and";
     $oquery = $conn->query($sql);
     array_push($ontime, $oquery->num_rows);
 
@@ -274,21 +258,26 @@
     $lquery = $conn->query($sql);
     array_push($late, $lquery->num_rows);
 
-/*    $sql = "SELECT * FROM attendance WHERE MONTH(date) = '$m' AND status = NULL $and";
-    $aquery = $conn->query($sql);
-    array_push($aftertime, $aquery->num_rows);*/
 
     $num = str_pad( $m, 2, 0, STR_PAD_LEFT );
     $month =  date('M', mktime(0, 0, 0, $m, 1));
     array_push($months, $month);
+
+   
+    
   }
+
+  
 
   $months = json_encode($months);
   $late = json_encode($late);
   $ontime = json_encode($ontime);
   $aftertime= json_encode($aftertime);
 
+ 
+
 ?>
+
 <!-- End Chart Data -->
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -317,17 +306,7 @@ $(function(){
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(45, 160, 69, 1)',
           data                : <?php echo $ontime; ?>
-        },
-/*        {
-          label               : 'Falta',
-          fillColor           : 'rgba(216, 40, 40, 1)',
-          strokeColor         : 'rgba(216, 40, 40, 1)',
-          pointColor          : '#D82828',
-          pointStrokeColor    : 'rgba(216, 40, 40, 1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(216, 40, 40, 1)',
-          data                : <?php echo $aftertime; ?>
-        },*/
+        },     
     ]
   }
 
@@ -362,8 +341,12 @@ $(function(){
   barChartOptions.datasetFill = false
   var myChart = barChart.Bar(barChartData, barChartOptions)
   document.getElementById('legend').innerHTML = myChart.generateLegend();
+
+  
+  
 });
 </script>
+
 <script>
 $(function(){
   $('#select_year').change(function(){
