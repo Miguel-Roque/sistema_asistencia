@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 <body>
-<div class="login-box reloj">
+<div class="login-box reloj" style="position: relative; left: 355px; top: 5%;">
     <div class="login-logo">
       <p id="time" class="bold"></p>
       <h1 id="date"></h1>
@@ -17,7 +17,7 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="position: relative; left: 355px;">
 <div class="container" id="loginform">
   <div class="row justify-content-center">
     <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
@@ -109,6 +109,7 @@ moment.lang('es', {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> 
   <script src="admin/jquery.js"></script>
+  <link rel="stylesheet" href="css/NewStyle.css">
   <title>galeria</title>
 </head>
 <body>
@@ -125,7 +126,6 @@ moment.lang('es', {
 <script src="admin/modal.js"></script>
 </body>
 </html>
-
 
 <style type="text/css">
 * {
