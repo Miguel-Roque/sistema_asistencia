@@ -64,6 +64,7 @@ header("content-Disposition: attachment; filename = Control de Asistencia NHL.xl
 $current_week = date('W');
 $current_year = date('Y');
 
+$negocio = $_GET['negocio'];
 $sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
 CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
      WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
@@ -74,7 +75,9 @@ RIGHT JOIN employees ON employees.id = attendance.employee_id
 LEFT JOIN position ON position.id = employees.position_id
 LEFT JOIN negocio ON negocio.id = employees.negocio_id
 LEFT JOIN schedules ON schedules.id = employees.schedule_id
-WHERE negocio.nombre_negocio = 'DESARROLLO WEB'
+
+WHERE negocio.nombre_negocio = '$negocio'
+
   AND YEAR(attendance.date) = $current_year
   AND WEEK(attendance.date) = $current_week
 ORDER BY attendance.date DESC, attendance.time_in DESC";
@@ -139,6 +142,7 @@ echo "</tr>";
                 </thead>
                 <tbody>
                 <?php
+$negocio = $_GET['negocio'];
 $sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
 CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
      WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
@@ -149,7 +153,7 @@ RIGHT JOIN employees ON employees.id = attendance.employee_id
 LEFT JOIN position ON position.id = employees.position_id
 LEFT JOIN negocio ON negocio.id = employees.negocio_id
 LEFT JOIN schedules ON schedules.id = employees.schedule_id
-WHERE negocio.nombre_negocio = 'DESARROLLO WEB'
+WHERE negocio.nombre_negocio = '$negocio'
 ORDER BY attendance.date DESC, attendance.time_in DESC";
 
 $query = $conn->query($sql);

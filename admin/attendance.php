@@ -46,10 +46,7 @@
         <div class="col-xs-12">
           <div class="box">
               
-            <div class="box-header with-border">
-              <a href="excel.php" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-cloud-download"></span> Reporte en Excel</a>
-              <a href="pdf.php" class="btn btn-primary btn-sm btn-flat"> <span class="glyphicon glyphicon-print"></span> Reporte en PDF</a>
-            </div>
+           
 
             <div class="box-body">
               <table id="example1" class="table table-bordered">
