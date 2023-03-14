@@ -48,88 +48,161 @@ header("content-Disposition: attachment; filename = Control de Asistencia NHL.xl
           text-align: center;
               }
         </style>
+              <h2>Control de Asistencia Semanal </h2>
+              <table border ='1' id="example1 border-collapse: separate">
+              <thead>
+                  <th scope='col' bgcolor='#00B0F0'>Nombre y Apellido</th>
+                  <th scope='col' bgcolor='#FF66FF'>Unidad de Negocio</th>
+                  <th scope='col' bgcolor='#9966FF'>Area</th>
+                  <th scope='col' bgcolor='#92D050'>Asistencias a Tiempo</th>
+                  <th scope='col' bgcolor='#00FF99'>Asistencias de Tardanzas</th>
+                  <th scope='col' bgcolor='#239B56'>Horas Realizadas Totales</th>
+                </thead>
+                <tbody>
+                <?php
+// Obtener el número de semana actual y el año actual
+$current_week = date('W');
+$current_year = date('Y');
 
+$negocio = $_GET['negocio'];
+$sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
+CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
+     WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
+END AS status_v1,
+attendance.id AS attid 
+FROM attendance
+RIGHT JOIN employees ON employees.id = attendance.employee_id
+LEFT JOIN position ON position.id = employees.position_id
+LEFT JOIN negocio ON negocio.id = employees.negocio_id
+LEFT JOIN schedules ON schedules.id = employees.schedule_id
+
+WHERE negocio.nombre_negocio = '$negocio'
+
+  AND YEAR(attendance.date) = $current_year
+  AND WEEK(attendance.date) = $current_week
+ORDER BY attendance.date DESC, attendance.time_in DESC";
+
+$query = $conn->query($sql);
+$attendance_count = array();
+$total_num_hr = array();
+
+while($row = $query->fetch_assoc()){
+$employee_id = $row['employee_id'];
+if (isset($attendance_count[$employee_id])) {
+if ($row['status_v1'] == 1) {
+  $attendance_count[$employee_id]['ontime']++;
+} else {
+  $attendance_count[$employee_id]['late']++;
+}
+$total_num_hr[$employee_id] += $row['num_hr'];
+} else {
+$attendance_count[$employee_id] = array(
+  'ontime' => 0,
+  'late' => 0,
+  'descripcion' => $row['description'],
+  'nombre_negocio' => $row['nombre_negocio'],
+  'firstname' => $row['firstname'],
+  'lastname' => $row['lastname'],
+  'num_hr' => $row['num_hr']
+);
+if ($row['status_v1'] == 1) {
+  $attendance_count[$employee_id]['ontime'] = 1;
+} else {
+  $attendance_count[$employee_id]['late'] = 1;
+}
+$total_num_hr[$employee_id] = $row['num_hr'];
+}
+}
+
+foreach ($attendance_count as $employee_id => $attendance) {
+echo "<tr>";
+echo "<td>".$attendance['firstname']." ".$attendance['lastname']."</td>";
+echo "<td>".$attendance['descripcion']."</td>";
+echo "<td>".$attendance['nombre_negocio']."</td>";
+echo "<td>".$attendance['ontime']."</td>";
+echo "<td>".$attendance['late']."</td>";
+echo "<td>".number_format($total_num_hr[$employee_id], 2)."</td>";
+echo "</tr>";
+}
+
+?>
+
+                </tbody>
+            </table>
+              <h2>Control de Asistencia</h2>
               <table border ='1' id="example1 border-collapse: separate">
                 <thead>
-                  <th scope='col' bgcolor='#A9D08E'>Fecha</th>
                   <th scope='col' bgcolor='#00B0F0'>Nombre y Apellido</th>
                   <th scope='col' bgcolor='#EB7A1D'>Codigo de Asistencia</th>
                   <th scope='col' bgcolor='#FF66FF'>Unidad de Negocio</th>
                   <th scope='col' bgcolor='#9966FF'>Area</th>
-                  <th scope='col' bgcolor='#92D050'>Hora Entrada</th>
-                  <th scope='col' bgcolor='#00FF99'>Hora de Salida</th>
-                  <th scope='col' bgcolor='#FFFF00'>Asistencia</th>
-                  <th scope='col' bgcolor='#66FFFF'>Miembro Desde</th>
+                  <th scope='col' bgcolor='#92D050'>Asistencias a Tiempo</th>
+                  <th scope='col' bgcolor='#00FF99'>Asistencias de Tardanzas</th>
+                  <th scope='col' bgcolor='#239B56'>Horas Realizadas Totales</th>
                 </thead>
                 <tbody>
-                  <?php
-                    $sql = "SELECT attendance.*,employees.*,negocio.*,position.*, employees.employee_id AS empid,
-                           CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
-                           WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
-                           END AS status_v1,
+                <?php
+$negocio = $_GET['negocio'];
+$sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
+CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
+     WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
+END AS status_v1,
+attendance.id AS attid 
+FROM attendance
+RIGHT JOIN employees ON employees.id = attendance.employee_id
+LEFT JOIN position ON position.id = employees.position_id
+LEFT JOIN negocio ON negocio.id = employees.negocio_id
+LEFT JOIN schedules ON schedules.id = employees.schedule_id
+WHERE negocio.nombre_negocio = '$negocio'
+ORDER BY attendance.date DESC, attendance.time_in DESC";
 
-                              attendance.id AS attid FROM attendance
-                              RIGHT JOIN employees
-                                ON employees.id = attendance.employee_id
-                              LEFT JOIN position
-                                ON position.id = employees.position_id
-                              LEFT JOIN negocio
-                                ON negocio.id = employees.negocio_id
-                              LEFT JOIN schedules
-                                ON schedules.id = employees.schedule_id
-                              ORDER BY attendance.date DESC,
-                              attendance.time_in DESC";
-                    $query = $conn->query($sql);
-                    while($row = $query->fetch_assoc()){
-                      //$status = ($row['status'])?'<span class="label label-warning pull-right">a tiempo</span>':'<span class="label label-danger pull-right">tarde</span>';
-                      if ( ($row['status_v1']) =="1" ){ 
-                        $status = '<span class="label label-success pull-right"> A Tiempo</span>';
-               } else if ( ($row['status_v1'])=="0" ){
-                        $status = '<span class="label label-warning pull-right"> Tarde</span>';
-                      } else if ( ($row['status_v1']) == NULL ){
+$query = $conn->query($sql);
+$attendance_count = array();
+$total_num_hr = array();
 
-                        $status = '<span class="label label-danger pull-right"> No Marco</span>';
-                   }
-                 
-                        echo "
-                        <tr>
-                          <td>".date('M d, Y', strtotime($row['date']))."</td>
-                          <td>".$row['firstname'].' '.$row['lastname']."</td>
-                          <td>".$row['employee_id']."</td>
-                          <td>".$row['nombre_negocio']."</td>
-                          <td>".$row['description']."</td>
-                          <td>".date('h:i A', strtotime($row['time_in']))."</td>
-                          <td>".date('h:i A', strtotime($row['time_out']))."</td>
-                          <td>".$status."</td>
-                          <td>".date('M d, Y', strtotime($row['created_on']))."</td>
+while($row = $query->fetch_assoc()){
+$employee_id = $row['employee_id'];
+if (isset($attendance_count[$employee_id])) {
+if ($row['status_v1'] == 1) {
+  $attendance_count[$employee_id]['ontime']++;
+} else {
+  $attendance_count[$employee_id]['late']++;
+}
+$total_num_hr[$employee_id] += $row['num_hr'];
+} else {
+$attendance_count[$employee_id] = array(
+  'ontime' => 0,
+  'late' => 0,
+  'descripcion' => $row['description'],
+  'nombre_negocio' => $row['nombre_negocio'],
+  'firstname' => $row['firstname'],
+  'lastname' => $row['lastname'],
+  'num_hr' => $row['num_hr']
+);
+if ($row['status_v1'] == 1) {
+  $attendance_count[$employee_id]['ontime'] = 1;
+} else {
+  $attendance_count[$employee_id]['late'] = 1;
+}
+$total_num_hr[$employee_id] = $row['num_hr'];
+}
+}
 
-                      ";
-                    }
-                  ?>
+foreach ($attendance_count as $employee_id => $attendance) {
+echo "<tr>";
+echo "<td>".$attendance['firstname']." ".$attendance['lastname']."</td>";
+echo "<td>".$employee_id."</td>";
+echo "<td>".$attendance['descripcion']."</td>";
+echo "<td>".$attendance['nombre_negocio']."</td>";
+echo "<td>".$attendance['ontime']."</td>";
+echo "<td>".$attendance['late']."</td>";
+echo "<td>".number_format($total_num_hr[$employee_id], 2)."</td>";
+echo "</tr>";
+}
+
+?>
 
 
-                 <?php
-                /*    $sql = "SELECT *, employees.id AS empid FROM employees LEFT JOIN schedules ON schedules.id=employees.schedule_id";*/
-
-                $sql = "SELECT *, employees.id AS empid
-                            FROM employees
-                            LEFT JOIN position
-                            ON position.id = employees.position_id
-                            LEFT JOIN schedules
-                            ON schedules.id = employees.schedule_id
-                            LEFT JOIN negocio
-                            ON negocio.id = employees.negocio_id";
-                    $query = $conn->query($sql);
-                    while($row = $query->fetch_assoc()){
-                      echo "
-                        <tr>
-                     
-                        <td>".date('h:i A', strtotime($row['time_in'])).' - '.date('h:i A', strtotime($row['time_out']))."</td>
-
-                        </tr>
-                      ";
-                    }
-                  ?>
                 </tbody>
               </table>
             </div>
