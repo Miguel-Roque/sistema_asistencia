@@ -1,5 +1,6 @@
+
 body {
-    background-image: url(../img/Distant\ Mountain.jpg);
+    background-image: url(../img/Fond2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -100,7 +101,7 @@ body {
              color: #00CC99;
         }
         .reloj{
-            font-size:4.7em;  
+          font-size:4.7em;  
         }
         .datos{
             font-size: 2.5em;
@@ -126,7 +127,7 @@ body {
 @media only screen and (max-width: 400px) {
   .cont-reloj{
     width:85%;
-    height:150px
+    height:150px;
   }
    .reloj{
             font-size:2.8em;  

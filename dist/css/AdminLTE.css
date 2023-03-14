@@ -1527,16 +1527,18 @@ a:focus {
  * --------------------
  */
 .small-box {
-  border-radius: 2px;
+  border-radius: 20px;
   position: relative;
   display: block;
   margin-bottom: 20px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
+  
 }
 .small-box > .inner {
   padding: 10px;
 }
 .small-box > .small-box-footer {
+  border-radius: 0 0 20px 20px;
   position: relative;
   text-align: center;
   padding: 3px 0;
@@ -1606,12 +1608,12 @@ a:focus {
  */
 .box {
   position: relative;
-  border-radius: 3px;
+  border-radius: 15px;
   background: #ffffff;
   border-top: 3px solid #d2d6de;
   margin-bottom: 20px;
   width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
