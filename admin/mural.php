@@ -41,7 +41,9 @@
       <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
               <label for="my-input">Seleccione una Imagen</label>
-              <input id="my-input"  type="file" name="img">
+              <input id="my-input"  type="file" name="img" id="img">
+              <label for="my-input">Nombre del comunicado</label>
+              <input id="my-input"  type="text" name="name" id="name">
           </div>
 
           <input type="submit" value="Guardar" class="btn btn-primary" name="Guardar">
@@ -52,8 +54,10 @@
 <table class="table table-striped table-bordered">
       <thead>
         <tr>
-            <th scope="col">Imagen</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Ruta</th>
+            <th scope="col">Imagen</th>
         </tr>
       </thead>
       <tbody>
@@ -90,12 +94,12 @@
             <td scope="row"><?php echo $data['id']?></td>
             <td><?php echo $data['nombre']?></td>
             <td><?php echo $data['ruta']?></td>>
-            <td><img style="width: 200px;" src="Backend/imagenes/" alt=""></td>
+            <td scope="row"><img src="Backend/imagenes/<?php echo $row['ruta']; ?>" alt="" class="galeria__img"></td>
             <td style="text-align: center">
               <form action="Backend/delete.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $data ['id']?>">
                 <button href="Backend/delete.php?id=<?php echo $row['id'];?>&ruta=<?php echo $row['ruta'];?> type="submit" class="btn btn-danger" onclick="return delete1('¿Está seguro de que deseas eliminar esta publicación?');">Eliminar</button>
-                <button href="Backend/delete.php?id=<?php echo $row['id'];?>&ruta=<?php echo $row['ruta'];?> type="submit" class="btn btn-warning" onclick="">Editar</button>
+                <button type="submit" href="mural_edit.php" class="btn btn-warning" >Editar</button>
               </form>
               </form>
             </td>
@@ -192,12 +196,12 @@ font-size: 25px;
 
 .galeria__img{
   position: relative;
-  width: 200px;
+  width: 400px;
   height: 300px;
   margin-bottom: 10px;
   padding: 10px;
   object-fit: cover;
-  left: 50px;
+  left: 10px;
   
 }
 
