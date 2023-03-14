@@ -1,3 +1,12 @@
+.galeria11{
+    position: fixed;
+    width: 480;
+    height: 380;
+    top: 100px;
+    left: 20px;
+    border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+}
+
 @media only screen and (max-width: 870px) {
     .container{
         position: relative;
