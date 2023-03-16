@@ -49,9 +49,11 @@
 <?php
   $n = rand(1,3)
 ?>
-<ul class="galeria11">
-    <img src="admin/Backend/imagenes/image_<?php echo $n?>.png"/>
-</ul>
+<div class="card">
+<img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
+</div>
+
+  
 <!--
 <table width="280" cellspacing="1" cellpadding="3" border="5" style="position:relative; left: 190px;">
 <tr>
