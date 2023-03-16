@@ -37,7 +37,9 @@
         <li class="header">CONSULTAS</li>
         <li><a href="schedule_employee.php"><i class="fa fa-clock-o"></i> <span>Horarios</span></a></li>
         <li class="header">EXPORTAR</li>
+        
         <li><a href="exportar.php"><i class="glyphicon glyphicon-cloud-download"></i> <span>Exportar Asistencias</span></a></li>
+        <li><a href="employee_export.php"><i class="glyphicon glyphicon-cloud-download"></i> <span>Exportar por Practicantes</span></a></li>
 
         <li class="header">FORO O MURAL</li>
         <li><a href="mural.php"><i class="fa fa-solid fa-camera-retro"></i> <span>Publicaciones</span></a></li>
