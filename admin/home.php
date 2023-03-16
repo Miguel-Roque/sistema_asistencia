@@ -272,7 +272,6 @@
   $months = json_encode($months);
   $late = json_encode($late);
   $ontime = json_encode($ontime);
-  $aftertime= json_encode($aftertime);
 
  
 
