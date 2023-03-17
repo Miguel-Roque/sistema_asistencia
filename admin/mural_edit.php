@@ -21,35 +21,16 @@
             <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body p-4 p-sm-5">
-            <h5 class="card-title text-center mb-5 fw-light fs-5">Registrarse</h5>
-            <form action="agregar.php" method="post">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Edite el comunicado</h5>
+            <form action="Backend/editar.php" method="post">
 
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="idUsuario" name="idUsuario" placeholder="Codigo" required autofocus>
-                <label for="usuario">Codigo</label>
-              </div>
+            <div class="form-group">
+              <label for="formFile" class="form-label">Seleccione una Imagen</label>
+              <input class="form-control" type="file" id="formFile" name="img">
+            </div><br>
 
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required autofocus>
-                <label for="usuario">Usuario</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Password" required>
-                <label for="password">Password</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI" required autofocus>
-                <label for="usuario">DNI</label>
-              </div>
-
-
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Registrar</button>
-              </div>
-              <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-outline-danger btn-login fw-bold text-uppercase" type="button" onclick="window.history.back()">Cancelar</button>
+            <div class="d-grid mb-2">
+                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Editar</button>
               </div>
 
               <hr class="my-4">

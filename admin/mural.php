@@ -40,10 +40,8 @@
          <h1 class="text-primary">Subir imagen</h1>
       <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
-              <label for="my-input">Seleccione una Imagen</label>
-              <input id="my-input"  type="file" name="img" id="img">
-              <label for="my-input">Nombre del comunicado</label>
-              <input id="my-input"  type="text" name="name" id="name">
+              <label for="formFile" class="form-label">Seleccione una Imagen</label>
+              <input class="form-control" type="file" id="formFile" name="img">
           </div>
 
           <input type="submit" value="Guardar" class="btn btn-primary" name="Guardar">
@@ -56,8 +54,6 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Ruta</th>
-            <th scope="col">Imagen</th>
         </tr>
       </thead>
       <tbody>
@@ -91,15 +87,13 @@
           while ($data = mysqli_fetch_array($query)) {
         ?>
           <tr>
-            <td scope="row"><?php echo $data['id']?></td>
-            <td><?php echo $data['nombre']?></td>
-            <td><?php echo $data['ruta']?></td>>
-            <td scope="row"><img src="Backend/imagenes/<?php echo $row['ruta']; ?>" alt="" class="galeria__img"></td>
+            <td style="width: 50px;" scope="row"><?php echo $data['id']?></td>
+            <td style="width: 100px;"><?php echo $data['nombre']?></td>
             <td style="text-align: center">
               <form action="Backend/delete.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $data ['id']?>">
                 <button href="Backend/delete.php?id=<?php echo $row['id'];?>&ruta=<?php echo $row['ruta'];?> type="submit" class="btn btn-danger" onclick="return delete1('¿Está seguro de que deseas eliminar esta publicación?');">Eliminar</button>
-                <button type="submit" href="mural_edit.php" class="btn btn-warning" >Editar</button>
+                <a type="button" class="btn btn-warning" href="../admin/mural_edit.php">Editar</a>
               </form>
               </form>
             </td>
