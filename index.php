@@ -46,6 +46,25 @@
 </div>
 </div>
 
+<?php
+  $n = rand(1,3)
+?>
+<div class="card">
+<img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
+</div>
+
+  
+<!--
+<table width="280" cellspacing="1" cellpadding="3" border="5" style="position:relative; left: 190px;">
+<tr>
+   <td><font color="#FFFFFF" face="arial, verdana, helvetica">
+              <b>Recuadro curioso con HTML</b>
+      </font>
+  </td>
+</tr>
+</table>
+-->
+
 <?php include 'scripts.php' ?>
 <script type="text/javascript">
 $(function() {
@@ -101,7 +120,7 @@ moment.lang('es', {
   $resultado = mysqli_query($conn,$query);
 ?>
 
-
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,9 +133,9 @@ moment.lang('es', {
 </head>
 <body>
 
-
 <div id="general1">
     <ul class="galeria">
+    ""
     <?php foreach($resultado as $row){ ?>
         <img src="admin/Backend/imagenes/<?php echo $row['nombre']; ?>" class="galeria__img">
     <?php }?>
@@ -249,3 +268,5 @@ div#general1{
 
 
 </style>
+
+-->
