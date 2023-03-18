@@ -1,5 +1,6 @@
+
 body {
-    background-image: url(../img/Distant\ Mountain.jpg);
+    background-image: url(../img/Fond2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -9,23 +10,26 @@ body {
     background: rgba(0, 0, 0, .1);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
     color: white;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 5px #00CC99, 0 0 10px #00CC99;
 }
 
 .form-control {
     background: rgba(0, 0, 0, .3);
-    border-style: none;
     transition: 0.5s ease-in;
     outline: none;
-    box-shadow: none;
     color: white;
+    box-shadow: inset 0 0 5px #6d6e1d, 0 0 5px #6d6e1d;
+    border: 2px solid #fff;
 }
 
 .form-control:focus {
     background: none;
     box-shadow: none;
     outline: none;
+    box-shadow: inset 0 0 5px #fcff31, 0 0 5px #fcff31;
+    border: 2px solid #fff;
 }
 
 .form-control::placeholder {
@@ -33,14 +37,19 @@ body {
 }
 
 .ingresar {
-    background: #222A3F;
+    background: #2C7482;
     padding: 10px;
     font-size: 16px;
     font-weight: 700!important;
+    box-shadow: inset 0 0 5px #00CC99, 0 0 5px #00CC99;
+    border: 2px solid #fff;
     color: white;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
     transition: 0.5s ease-in;
 }
+
+/*
+  0 0 30px rgba(0, 0, 0, 0.568);
+*/
 
 .ingresar:hover {
     color: white;
@@ -100,7 +109,7 @@ body {
              color: #00CC99;
         }
         .reloj{
-            font-size:4.7em;  
+          font-size:4.7em;  
         }
         .datos{
             font-size: 2.5em;
@@ -126,7 +135,7 @@ body {
 @media only screen and (max-width: 400px) {
   .cont-reloj{
     width:85%;
-    height:150px
+    height:150px;
   }
    .reloj{
             font-size:2.8em;  
@@ -134,4 +143,12 @@ body {
   .datos{
     font-size:1.3em
     }
+}
+
+@media only screen and (max-width: 767px) {
+
+body {
+  background-image: url(../img/respon.jpg);
+  }
+
 }

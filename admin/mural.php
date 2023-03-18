@@ -24,7 +24,7 @@
 
 <?php 
   include('includes/conn.php');
-  $query = "select * from imagenes";
+  $query = "SELECT * FROM imagenes";
   $resultado = mysqli_query($conn,$query);
 ?>
 
@@ -40,8 +40,8 @@
          <h1 class="text-primary">Subir imagen</h1>
       <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
-              <label for="my-input">Seleccione una Imagen</label>
-              <input id="my-input"  type="file" name="img">
+              <label for="formFile" class="form-label">Seleccione una Imagen</label>
+              <input class="form-control" type="file" id="formFile" name="img">
           </div>
 
           <input type="submit" value="Guardar" class="btn btn-primary" name="Guardar">
@@ -49,7 +49,59 @@
     </div>
   </div>
 </div>  
+<table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php 
+        //Paginador
+        $sql_registe = mysqli_query($conn,"SELECT COUNT(*) as total_posts FROM imagenes ");
+        $result_register = mysqli_fetch_array($sql_registe);
+        $total_registro = $result_register['total_posts'];
 
+        $por_pagina = 10;
+
+        if(empty($_GET['pagina']))
+        {
+          $pagina = 1;
+        }else{
+          $pagina = $_GET['pagina'];
+        }
+
+        $desde = ($pagina-1) * $por_pagina;
+        $total_paginas = ceil($total_registro / $por_pagina);
+
+        $query = mysqli_query($conn,"SELECT * FROM imagenes 
+                                     ORDER BY id 
+                                     ASC LIMIT $desde,$por_pagina");
+
+        mysqli_close($conn);
+
+        $result = mysqli_num_rows($query);
+        if($result > 0){
+
+          while ($data = mysqli_fetch_array($query)) {
+        ?>
+          <tr>
+            <td style="width: 50px;" scope="row"><?php echo $data['id']?></td>
+            <td style="width: 100px;"><?php echo $data['nombre']?></td>
+            <td style="text-align: center">
+              <form action="Backend/delete.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $data ['id']?>">
+                <button href="Backend/delete.php?id=<?php echo $row['id'];?>&ruta=<?php echo $row['ruta'];?> type="submit" class="btn btn-danger" onclick="return delete1('¿Está seguro de que deseas eliminar esta publicación?');">Eliminar</button>
+              </form>
+              </form>
+            </td>
+          </tr>
+        <?php 
+          } 
+        }?>
+      </tbody>
+    </table>
 
 
 <script type="text/javascript">
@@ -72,8 +124,8 @@
 
 <hr>
 
-
 <?php 
+/*
   $sql = "select * from imagenes";
   $res = mysqli_query($conn,$sql);
 
@@ -90,7 +142,7 @@ while($row = mysqli_fetch_array($res))
 
   <?php 
 }
-
+*/
 ?>
 
 
@@ -137,12 +189,12 @@ font-size: 25px;
 
 .galeria__img{
   position: relative;
-  width: 200px;
+  width: 400px;
   height: 300px;
   margin-bottom: 10px;
   padding: 10px;
   object-fit: cover;
-  left: 50px;
+  left: 10px;
   
 }
 

@@ -1,0 +1,48 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+    border-radius: 5px;
+    top: -320px;
+    left: 210px;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 5px #631463, 0 0 10px #6e1b6e;
+  }
+  
+.card:hover {
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 5px #ff22ff, 0 0 10px #ff22ff;
+  }
+  
+img {
+    border-radius: 5px 5px 0 0;
+  }
+  
+.container {
+    padding: 2px 16px;
+    
+  }
+
+
+
+@media only screen and (max-width: 870px) {
+    .container{
+        position: relative;
+        left: -350px;
+    }
+    
+    .login-logo{
+        position: relative;
+        right: 350px;
+    }
+}
+@media only screen and (max-width: 870px) {
+    .card{
+        position: absolute;
+        top: 400px;
+        left: 6%;
+        width: 90%;
+        
+    }
+}
+

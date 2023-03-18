@@ -2,23 +2,14 @@
 
   include('../includes/conn.php');
 
-  if (isset($_GET))
-   {
-  	$id=0;
-  	$ruta='';
-  	$id=$_GET['id'];
-  	$ruta=$_GET['ruta'];
-  	$sql="DELETE FROM imagenes WHERE id = '".$id."'";
-  	$res = mysqli_query($conn,$sql);
-  	if ($res) 
-  	{
-
-  		unlink($ruta);
-  		echo '<script> window.location="../mural.php";</script>';	
-
-  	}
-  }
-
+  $idComunicado= $_POST['id'];
+  $sql = "DELETE FROM imagenes WHERE id = $idComunicado";
+  
+  if ($conn->query($sql) === TRUE) {
+	echo '<script> window.location="../mural.php";</script>';
+	} else {
+	  echo "Error al eliminar comunicado " . $conn->error;
+	}
 	
 ?>
 

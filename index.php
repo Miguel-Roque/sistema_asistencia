@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 <body>
-<div class="login-box reloj">
+<div class="login-box reloj" style="position: relative; left: 355px; top: 5%;">
     <div class="login-logo">
       <p id="time" class="bold"></p>
       <h1 id="date"></h1>
@@ -17,7 +17,7 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="position: relative; left: 355px;">
 <div class="container" id="loginform">
   <div class="row justify-content-center">
     <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
@@ -45,6 +45,25 @@
   </div>
 </div>
 </div>
+
+<?php
+  $n = rand(1,3)
+?>
+<div class="card">
+<img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
+</div>
+
+  
+<!--
+<table width="280" cellspacing="1" cellpadding="3" border="5" style="position:relative; left: 190px;">
+<tr>
+   <td><font color="#FFFFFF" face="arial, verdana, helvetica">
+              <b>Recuadro curioso con HTML</b>
+      </font>
+  </td>
+</tr>
+</table>
+-->
 
 <?php include 'scripts.php' ?>
 <script type="text/javascript">
@@ -101,7 +120,7 @@ moment.lang('es', {
   $resultado = mysqli_query($conn,$query);
 ?>
 
-
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,13 +128,14 @@ moment.lang('es', {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> 
   <script src="admin/jquery.js"></script>
+  <link rel="stylesheet" href="css/NewStyle.css">
   <title>galeria</title>
 </head>
 <body>
 
-
 <div id="general1">
     <ul class="galeria">
+    ""
     <?php foreach($resultado as $row){ ?>
         <img src="admin/Backend/imagenes/<?php echo $row['nombre']; ?>" class="galeria__img">
     <?php }?>
@@ -125,7 +145,6 @@ moment.lang('es', {
 <script src="admin/modal.js"></script>
 </body>
 </html>
-
 
 <style type="text/css">
 * {
@@ -249,3 +268,5 @@ div#general1{
 
 
 </style>
+
+-->
