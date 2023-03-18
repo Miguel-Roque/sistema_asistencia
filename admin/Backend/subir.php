@@ -7,20 +7,23 @@ if(isset($_FILES['img'])){
     $nombreImg=$_FILES['img']['name'];
     $ruta=$_FILES['img']['tmp_name'];
     $imagen= uniqid();
+    if($_FILES["img"]["error"] === 4){
+        echo "<script> alert('No hay imagen que añadir'); </script>";
+        echo '<script> window.location="../mural.php";</script>';
+    }
+    else{
     if(assert($ruta,$imagen)){
         $sql="INSERT INTO imagenes(nombre,imagen) VALUES ('$nombreImg','$imagen')";
         $res=mysqli_query($conn,$sql);
         if($res){
             echo '<script> window.location="../mural.php";</script>';
-        }
-        else if($res=0){
-            echo 'No hay imagen seleccionada';
+  
         }
         else{
             die("Error".mysqli_error($conn));
         }
+      }
     }
-
 }
 /*
 if(isset($_POST["submit"])){

@@ -93,7 +93,6 @@
               <form action="Backend/delete.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $data ['id']?>">
                 <button href="Backend/delete.php?id=<?php echo $row['id'];?>&ruta=<?php echo $row['ruta'];?> type="submit" class="btn btn-danger" onclick="return delete1('¿Está seguro de que deseas eliminar esta publicación?');">Eliminar</button>
-                <a type="button" class="btn btn-warning" href="../admin/mural_edit.php">Editar</a>
               </form>
               </form>
             </td>
