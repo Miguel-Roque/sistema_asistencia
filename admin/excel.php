@@ -63,11 +63,16 @@ header("content-Disposition: attachment; filename = Control de Asistencia NHL.xl
 // Obtener el número de semana actual y el año actual
 $current_week = date('W');
 $current_year = date('Y');
-
+$current_date = date('Y-m-d');
+if ($current_date >= '2023-03-24') {
+  $add_time = '00:05:00';
+} else {
+  $add_time = '00:15:00';
+}
 $negocio = $_GET['negocio'];
 $sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
-CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
-     WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
+CASE WHEN ADDTIME(schedules.time_in, '$add_time') >= attendance.time_in THEN 1 
+     WHEN ADDTIME(schedules.time_in, '$add_time') <= attendance.time_in THEN 0 
 END AS status_v1,
 attendance.id AS attid 
 FROM attendance
@@ -143,9 +148,15 @@ echo "</tr>";
                 <tbody>
                 <?php
 $negocio = $_GET['negocio'];
+$current_date = date('Y-m-d');
+if ($current_date >= '2023-03-24') {
+  $add_time = '00:05:00';
+} else {
+  $add_time = '00:15:00';
+}
 $sql = "SELECT attendance.*, employees.*, negocio.*, position.*, employees.employee_id AS empid,
-CASE WHEN ADDTIME(schedules.time_in, '00:15:00') >= attendance.time_in THEN 1 
-     WHEN ADDTIME(schedules.time_in, '00:15:00') <= attendance.time_in THEN 0 
+CASE WHEN ADDTIME(schedules.time_in, '$add_time') >= attendance.time_in THEN 1 
+     WHEN ADDTIME(schedules.time_in, '$add_time') <= attendance.time_in THEN 0 
 END AS status_v1,
 attendance.id AS attid 
 FROM attendance
