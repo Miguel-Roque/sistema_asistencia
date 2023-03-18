@@ -5,10 +5,13 @@
     border-radius: 5px;
     top: -320px;
     left: 210px;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 5px #631463, 0 0 10px #6e1b6e;
   }
   
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 5px #ff22ff, 0 0 10px #ff22ff;
   }
   
 img {
@@ -17,7 +20,9 @@ img {
   
 .container {
     padding: 2px 16px;
+    
   }
+
 
 
 @media only screen and (max-width: 870px) {
