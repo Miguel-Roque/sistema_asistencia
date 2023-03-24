@@ -43,6 +43,9 @@
 
         <li class="header">FORO O MURAL</li>
         <li><a href="mural.php"><i class="fa fa-solid fa-camera-retro"></i> <span>Publicaciones</span></a></li>
+
+        <li class="header">USUARIOS</li>
+        <li><a href="usuario.php"><i class="fa fa-light fa-user"></i> <spam>Lista de Usuarios</spam></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
