@@ -118,8 +118,8 @@
                   	<div class="col-sm-9">
                     <select class="form-control" name="rango" id="edit_rango" required>
                         <option selected id="rango_val">- Seleccionar -</option>
-                        <option value="Admin">admin</option>
-                        <option value="User">user</option>
+                        <option value="admin">admin</option>
+                        <option value="user">user</option>
                       </select>
                   	</div>
                 </div>
