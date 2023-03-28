@@ -5,7 +5,7 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>Agregar Usuario</b></h4>
+            	<h4 class="modal-title"><b>Agregar Admin</b></h4>
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="usuario_add.php" enctype="multipart/form-data">
@@ -38,22 +38,22 @@
                   	</div>
                 </div>
                 <div class="form-group">
-                  	<label for="photo" class="col-sm-3 control-label">Foto</label>
-
-                  	<div class="col-sm-9">
-                      <input type="text" class="form-control" name="photo" id="photo" require></input>
-                  	</div>
-                </div>
-                <div class="form-group">
                   	<label for="rango" class="col-sm-3 control-label">Rango</label>
 
-                  	<div class="col-sm-9">
-                    <select class="form-control" name="rango" id="rango" required>
+					<div class="col-sm-9">
+                        <select class="form-control" name="rango" id="rango" required>
                         <option value="" selected>- Seleccionar -</option>
-                        <option value="Admin">admin</option>
-                        <option value="User">user</option>
-                      </select>
-                  	</div>
+                        <?php
+                          $sql = "SELECT * FROM rango";
+                          $query = $conn->query($sql);
+                          while($prow = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$prow['id']."'>".$prow['rango']."</option>
+                            ";
+                          }
+                        ?>
+                        </select>
+                    </div>
                 </div>
                 
           	<div class="modal-footer">
@@ -72,7 +72,7 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>Actualizar Usuario</b></h4>
+            	<h4 class="modal-title"><b>Actualizar Admin</b></h4>
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="usuario_edit.php">

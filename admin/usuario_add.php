@@ -7,10 +7,9 @@
         $hash = password_hash($password, PASSWORD_DEFAULT); // aquí se cifra la contraseña y se guarda el hash resultante en una variable
 		$nombre = $_POST['firstname'];
 		$last = $_POST['lastname'];
-		$photo = $_POST['photo'];
 		$rango = $_POST['rango'];
 		
-		$sql = "INSERT INTO admin (username, password, firstname, lastname, photo, rango) VALUES ('$username', '$hash', '$nombre', '$last', '$photo', '$rango')";
+		$sql = "INSERT INTO admin (username, password, firstname, lastname, rango) VALUES ('$username', '$hash', '$nombre', '$last', '$rango')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Usuario añadido satisfactoriamente';
 		}
