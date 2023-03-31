@@ -1,5 +1,5 @@
 <?php
-
+//Para borrar las imagenes del menu
   include('../includes/conn.php');
 
   $idRandom= $_POST['id'];

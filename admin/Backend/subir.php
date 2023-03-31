@@ -1,4 +1,5 @@
 <?php
+//Ahora se muestran las imagenes en la pagina y son guardadas en la BD
 
 
 include('../includes/conn.php');

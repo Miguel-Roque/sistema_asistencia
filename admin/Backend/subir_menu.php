@@ -1,23 +1,8 @@
 <?php
-/*
-include('../includes/conn.php');
+//Ahora se muestran las imagenes en la pagina y son guardadas en la BD
 
-$nombre = $_FILES["imagen"]["name"];
-$imagen = file_get_contents($_FILES["imagen"]["tmp_name"]);
 
-// Mover la imagen a la carpeta deseada
-move_uploaded_file($_FILES["imagen"]["tmp_name"], "../Backend/randomimg/$nombre");
 
-// Insertar la imagen en la base de datos
-$sql = "INSERT INTO imagenes (nombre, imagen) VALUES ('$nombre', '$imagen')";
-mysqli_query($conn, $sql);
-
-// Cerrar la conexión
-mysqli_close($conn);
-
-// Redirigir al usuario a otra página
-header("Location: add_img_menu.php");
-*/
 include('../includes/conn.php');
 
 if(isset($_FILES['imagen'])){
