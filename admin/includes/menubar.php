@@ -38,7 +38,20 @@
         <li><a href="schedule_employee.php"><i class="fa fa-clock-o"></i> <span>Horarios</span></a></li>
 
         <li class="header">FORO O MURAL</li>
-        <li><a href="mural.php"><i class="fa fa-solid fa-camera-retro"></i> <span>Publicaciones</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i>
+            <span>Publicaciones</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="mural.php"><i class="fa fa-circle-o"></i>Comunicados</a></li>
+            <li><a href="add_img_menu.php"><i class="fa fa-circle-o"></i>Imagenes de menu</a></li>
+          </ul>
+        </li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->

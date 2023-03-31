@@ -49,7 +49,7 @@
 <?php
   $n = rand(1,3)
 ?>
-<div class="card">
+<div class="card bg-transparent">
 <img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
 </div>
 

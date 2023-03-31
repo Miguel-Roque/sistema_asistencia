@@ -4,20 +4,23 @@
 include('../includes/conn.php');
 
 if(isset($_FILES['img'])){
-    $nombreImg=$_FILES['img']['name'];
-    $ruta=$_FILES['img']['tmp_name'];
-    $imagen= uniqid();
+    $nombre=$_FILES['img']['name'];
+    $imagen=$_FILES['img']['tmp_name'];
+
     if($_FILES["img"]["error"] === 4){
         echo "<script> alert('No hay imagen que añadir'); </script>";
         echo '<script> window.location="../mural.php";</script>';
     }
     else{
-    if(assert($ruta,$imagen)){
-        $sql="INSERT INTO imagenes(nombre,imagen) VALUES ('$nombreImg','$imagen')";
+    if(copy($imagen,$nombre)){
+        $img_content = file_get_contents($imagen);
+        $img_content = mysqli_real_escape_string($conn, $img_content);
+        
+        $sql="INSERT INTO imagenes(nombre,imagen) VALUES ('$nombre','$img_content')";
         $res=mysqli_query($conn,$sql);
         if($res){
-            echo '<script> window.location="../mural.php";</script>';
-  
+            //move_uploaded_file($_FILES["imagen"]["tmp_name"], "../Backend/randomimg/$nombre");
+            echo '<script> window.location="../mural.php";</script>'; 
         }
         else{
             die("Error".mysqli_error($conn));
