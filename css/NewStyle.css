@@ -23,6 +23,13 @@ img {
     
   }
 
+  .alert{
+    height: 400%;
+    width: 120%;
+    left: 1px;
+    
+  }
+
 
 
 @media only screen and (max-width: 870px) {

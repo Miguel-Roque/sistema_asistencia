@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `n1m5g3f0_asistencia`
 --
-
+CREATE DATABASE asistencias;
+select * from imagenes;
 -- --------------------------------------------------------
 
 --

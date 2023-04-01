@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 <body>
-<div class="login-box reloj" style="position: relative; left: 355px; top: 5%;">
+<div class="login-box reloj" style="position: relative; left: 355px; top: 5%; z-index: 2;">
     <div class="login-logo">
       <p id="time" class="bold"></p>
       <h1 id="date"></h1>
@@ -10,14 +10,14 @@
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <span class="result"><i class="icon fa fa-check"></i> <span class="message"></span></span>
     </div>
-    <div class="alert alert-danger alert-dismissible mt20 text-center" style="display:none;">
+    <div class="alert alert-danger alert-dismissible mt20 text-center" style="display:none; position: absolute;">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <span class="result"><i class="icon fa fa-warning"></i> <span class="message"></span></span>
     </div>
 </div>
 
 
-<div class="container" style="position: relative; left: 355px;">
+<div class="container" style="position: relative; left: 355px; z-index: 1;">
 <div class="container" id="loginform">
   <div class="row justify-content-center">
     <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
@@ -46,13 +46,21 @@
 </div>
 </div>
 
+
+
 <?php
-  $n = rand(1,3)
+include('admin/includes/conn.php');
+$cons = mysqli_query($conn, "SELECT * FROM imagenes");
+
+while($consulta = mysqli_fetch_array($cons)){
+
 ?>
 <div class="card bg-transparent">
 <img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
 </div>
-
+<?php
+}
+?>
   
 <!--
 <table width="280" cellspacing="1" cellpadding="3" border="5" style="position:relative; left: 190px;">
