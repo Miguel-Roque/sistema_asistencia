@@ -24,7 +24,7 @@
 
 <?php 
   include('includes/conn.php');
-  $query = "SELECT * FROM imagenes";
+  $query = "SELECT * FROM menu_imagenes";
   $resultado = mysqli_query($conn,$query);
 ?>
 
@@ -49,7 +49,7 @@
     </div>
   </div>
 </div>  
-<table class="table table-striped table-bordered">
+<table class="table table-bordered">
       <thead>
         <tr>
             <th scope="col">ID</th>
@@ -91,12 +91,11 @@
           <tr>
             <td style="width: 50px;" scope="row"><?php echo $data['ID']?></td>
             <td style="width: 100px;"><?php echo $data['nombre_img']?></td>
-            <td><img style="width: 200px;" src="data:image/jpg;base64,<?php echo base64_encode($data['imagen_rdm'])?>" alt=""></td>
-            <td style="text-align: center">
+            <td><img style="width: 300px; align-items: center; postion:absolute;" src="data:image/jpg;base64,<?php echo base64_encode($data['imagen_rdm'])?>" alt=""></td>
+            <td style="width: 120px; text-align: center;">
               <form action="Backend/delete_menu.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $data ['ID']?>">
                 <button class="btn btn-danger" onclick="return delete1('¿Está seguro de que deseas eliminar esta imagen?');">Eliminar</button>
-              </form>
               </form>
             </td>
           </tr>

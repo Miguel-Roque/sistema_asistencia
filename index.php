@@ -50,13 +50,13 @@
 
 <?php
 include('admin/includes/conn.php');
-$cons = mysqli_query($conn, "SELECT * FROM imagenes");
+$cons = mysqli_query($conn, "SELECT * FROM menu_imagenes ORDER BY RAND() LIMIT 1");
 
 while($consulta = mysqli_fetch_array($cons)){
 
 ?>
 <div class="card bg-transparent">
-<img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
+<img src="data:image/jpg;base64,<?php echo base64_encode($consulta["imagen_rdm"])?>" style="width: 100%;"/>
 </div>
 <?php
 }
@@ -124,7 +124,7 @@ moment.lang('es', {
 
 <?php 
   include('admin/includes/conn.php');
-  $query = "select * from imagenes";
+  $query = "select * from menu_imagenes";
   $resultado = mysqli_query($conn,$query);
 ?>
 
@@ -145,7 +145,7 @@ moment.lang('es', {
     <ul class="galeria">
     ""
     <?php foreach($resultado as $row){ ?>
-        <img src="admin/Backend/imagenes/<?php echo $row['nombre']; ?>" class="galeria__img">
+        <img src="admin/Backend/imagenes/<?php echo base64_encode($row['imagen_rdm'])?>" class="galeria__img">
     <?php }?>
     </ul>
 

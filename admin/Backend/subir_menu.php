@@ -21,7 +21,6 @@ if(isset($_FILES['imagen'])){
         $sql="INSERT INTO menu_imagenes(nombre_img,imagen_rdm) VALUES ('$nombre','$img_content')";
         $res=mysqli_query($conn,$sql);
         if($res){
-            move_uploaded_file($_FILES["imagen"]["tmp_name"], "../Backend/randomimg/$nombre");
             echo '<script> window.location="../add_img_menu.php";</script>'; 
         }
         else{
