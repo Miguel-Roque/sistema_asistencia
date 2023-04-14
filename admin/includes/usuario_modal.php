@@ -76,7 +76,7 @@
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="usuario_edit.php">
-            		<input type="hidden" class="empid" name="id">
+            		<input type="hidden" class="id" name="id">
                 <div class="form-group">
                     <label for="edit_username" class="col-sm-3 control-label">Usuario</label>
 
@@ -140,13 +140,13 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b><span class="id"></span></b></h4>
+            	<h4 class="modal-title"><b>Borrando...</b></h4>
           	</div>
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="usuario_delete.php">
-            		<input type="hidden" class="empid" name="id">
+            		<input type="hidden" class="id" name="id">
             		<div class="text-center">
-	                	<p>ELIMINAR USUARIO</p>
+	                	<p>Borrar Admin</p>
 	                	<h2 class="bold del_usuario_name"></h2>
 	            	</div>
           	</div>
