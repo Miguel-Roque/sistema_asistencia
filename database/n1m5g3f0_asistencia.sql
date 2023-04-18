@@ -6836,6 +6836,27 @@ CREATE TABLE `overtime` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `papelera`
+--
+
+CREATE TABLE `papelera` (
+  `id` int(11) NOT NULL,
+  `employee_id` varchar(15) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `adress` text NOT NULL,
+  `contact_info` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `negocio_id` int(11) NOT NULL,
+  `position_id` int(11) NOT NULL,
+  `schedule_id` int(11) NOT NULL,
+  `photo` varchar(200) NOT NULL,
+  `created_on` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `position`
 --
 
@@ -6862,6 +6883,25 @@ INSERT INTO `position` (`id`, `description`, `rate`) VALUES
 (10, 'INGENIERIA INDUSTRIAL', NULL),
 (11, 'COMUNICACIÃ“N INTERNA', NULL),
 (12, 'ANIMACION 3D', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rango`
+--
+
+CREATE TABLE `rango` (
+  `id` int(11) NOT NULL,
+  `rango` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rango`
+--
+
+INSERT INTO `rango` (`id`, `rango`) VALUES
+(1, 'admin'),
+(2, 'user');
 
 -- --------------------------------------------------------
 
@@ -6970,6 +7010,12 @@ ALTER TABLE `position`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `rango`
+--
+ALTER TABLE `rango`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `schedules`
 --
 ALTER TABLE `schedules`
@@ -7034,10 +7080,27 @@ ALTER TABLE `position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT de la tabla `rango`
+--
+ALTER TABLE `rango`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `schedules`
 --
 ALTER TABLE `schedules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+COMMIT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`rango`) REFERENCES `rango` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
