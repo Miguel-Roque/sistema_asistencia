@@ -46,9 +46,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header with-border">
-              <a href="schedule_print.php" class="btn btn-success btn-sm btn-flat"><span class="glyphicon glyphicon-print"></span> Imprimir</a>
-            </div>
+            
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
@@ -83,7 +81,7 @@
                       <td>".date('h:i A', strtotime($row['time_in'])).' - '.date('h:i A', strtotime($row['time_out']))."</td>
                       <td>".date('M d, Y', strtotime($row['created_on']))."</td>
                           <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['empid']."'><i class='fa fa-edit'></i> Editar</button>
+                            <button class='btn btn-warning btn-sm edit btn-flat' data-id='".$row['empid']."'><i class='fa fa-edit'></i> Detalles</button>
                           </td>
                         </tr>
                       ";
@@ -119,10 +117,17 @@ function getRow(id){
     data: {id:id},
     dataType: 'json',
     success: function(response){
+      
       $('.employee_name').html(response.firstname+' '+response.lastname);
       $('#schedule_val').val(response.schedule_id);
+      $('#employee_val').val(response.employee_id);
       $('#schedule_val').html(response.time_in+' '+response.time_out);
       $('#empid').val(response.empid);
+      $('#employee_name').html(response.firstname+' '+response.lastname);
+      $('#position_val').val(response.position_id).html(response.description);
+      $('#negocio_val').val(response.negocio_id).html(response.nombre_negocio);
+      $('#position_valv2').val(response.description);
+      $('#negocio_valv2').val(response.nombre_negocio);
     }
   });
 }

@@ -178,6 +178,7 @@
                   <th class="hidden"></th>
                   <th>Fecha</th>
                   <th>Nombre</th>
+                  <th>Area</th>
                   <th>Hora Entrada</th>
                   <th>Hora Salida</th>
                 </thead>
@@ -203,6 +204,8 @@
                                 ON negocio.id = employees.negocio_id
                               LEFT JOIN schedules
                                 ON schedules.id = employees.schedule_id
+                              WHERE attendance.date >= DATE_SUB(CURDATE(), INTERVAL 14 DAY)
+
                               ORDER BY attendance.date DESC,
                               attendance.time_in DESC";
                     $query = $conn->query($sql);
@@ -222,6 +225,7 @@
                           <td class='hidden'></td>
                           <td>".date('M d, Y', strtotime($row['date']))."</td>
                           <td>".$row['firstname'].' '.$row['lastname']."</td>
+                          <td>".$row['nombre_negocio']."</td>
                           <td>".date('h:i A', strtotime($row['time_in'])).$status."</td>
                           <td>".date('h:i A', strtotime($row['time_out']))."</td>
 
