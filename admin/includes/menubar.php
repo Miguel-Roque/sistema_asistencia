@@ -46,6 +46,7 @@
 
         <li class="header">USUARIOS</li>
         <li><a href="usuario.php"><i class="fa fa-light fa-user"></i> <spam>Lista de Usuarios</spam></a></li>
+        <li><a href="papelera.php"><i class="fa fa-light fa-trash"></i> <spam>Papelera</spam></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

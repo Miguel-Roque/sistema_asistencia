@@ -237,7 +237,6 @@
         </div>
     </div>
 </div>
-
 <!-- Delete -->
 <div class="modal fade" id="delete">
     <div class="modal-dialog">

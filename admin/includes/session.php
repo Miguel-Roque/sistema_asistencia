@@ -1,4 +1,19 @@
 <?php
+
+	if(!isset($_SESSION)) 
+	{ 
+		session_start(); 
+		include 'includes/conn.php';
+
+	if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+		header('location: index.php');
+	}
+
+	$sql = "SELECT * FROM admin WHERE id = '".$_SESSION['admin']."'";
+	$query = $conn->query($sql);
+	$user = $query->fetch_assoc();
+	}
+	 /*
 	session_start();
 	include 'includes/conn.php';
 
@@ -8,6 +23,6 @@
 
 	$sql = "SELECT * FROM admin WHERE id = '".$_SESSION['admin']."'";
 	$query = $conn->query($sql);
-	$user = $query->fetch_assoc();
+	$user = $query->fetch_assoc();*/
 
 ?>
