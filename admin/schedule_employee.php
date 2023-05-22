@@ -69,7 +69,9 @@
                             LEFT JOIN schedules
                             ON schedules.id = employees.schedule_id
                             LEFT JOIN negocio
-                            ON negocio.id = employees.negocio_id";
+                            ON negocio.id = employees.negocio_id ";
+                            /*LEFT JOIN attendance
+                            ON attendance.employee_id = employees.employee_id";*/
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
@@ -81,7 +83,7 @@
                       <td>".date('h:i A', strtotime($row['time_in'])).' - '.date('h:i A', strtotime($row['time_out']))."</td>
                       <td>".date('M d, Y', strtotime($row['created_on']))."</td>
                           <td>
-                            <button class='btn btn-warning btn-sm edit btn-flat' data-id='".$row['empid']."'><i class='fa fa-edit'></i> Detalles</button>
+                          <button class='btn btn-warning btn-sm edit btn-flat' data-id='".$row['empid']."' data-photo='".$row['photo']."'><i class='fa fa-edit'></i> Detalles</button>
                           </td>
                         </tr>
                       ";
@@ -110,6 +112,7 @@ $(function(){
   });
 });
 
+
 function getRow(id){
   $.ajax({
     type: 'POST',
@@ -128,9 +131,27 @@ function getRow(id){
       $('#negocio_val').val(response.negocio_id).html(response.nombre_negocio);
       $('#position_valv2').val(response.description);
       $('#negocio_valv2').val(response.nombre_negocio);
+      $('#num_hr').val(response.num_hr);
     }
   });
 }
+
+function showProfileImage(photo) {
+  var imageSrc = photo ? "../images/" + photo : "../images/profile.jpg";
+  $('#profile_image').attr('src', imageSrc);
+}
+
+$(function() {
+  $('.edit').click(function(e) {
+    e.preventDefault();
+    $('#edit').modal('show');
+    var id = $(this).data('id');
+    var photo = $(this).data('photo');
+    showProfileImage(photo);
+    getRow(id);
+  });
+});
+
 </script>
 </body>
 </html>

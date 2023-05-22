@@ -12,20 +12,27 @@
                     <div class="row">
   <div class="col-sm-5 text-center">
     <div style="text-align:center;">
-      <span style="font-weight:bold;">Foto de perfil</span><br>
-
- 
-      </div>
+      <span  style="font-weight:bold;">Foto de perfil</span><br>
+      <img id="profile_image" src="../images/profile.jpg" width="400px" height="600px">
+    </div>
   </div>
   <div class="col-sm-7 text-center">
     <div class="form-group">
       <label for="edit_schedule" class="control-label">
+                <div class="form-group">
+                    <label for="employee_val" class="col-sm-3 control-label">Código de Practicante</label>
+
+                    <div class="col-sm-9">
+                      <input  type="text" class="form-control" name="employee_val" id="employee_val" disabled>
+                      </input>
+                    </div>
+                </div>
         
                 <div class="form-group">
                     <label for="negocio" class="col-sm-3 control-label">Area</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="negocio" id="negocio_valv2" required>
+                      <input type="text" class="form-control" name="negocio" id="negocio_valv2" required disabled>
                         
                       </input>
                     </div>
@@ -35,7 +42,7 @@
                     <label for="position_valv2" class="col-sm-3 control-label">Cargo</label>
 
                     <div class="col-sm-9">
-                      <input  type="text" class="form-control" name="position" id="position_valv2">
+                      <input  type="text" class="form-control" name="position" id="position_valv2" disabled>
                       </input>
                     </div>
                 </div>
@@ -59,10 +66,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="position_valv2" class="col-sm-3 control-label">Horas de Trabajo</label>
+                    <label for="num_hr" class="col-sm-3 control-label">Horas de Trabajo</label>
 
                     <div class="col-sm-9">
-                      <input  type="text" class="form-control" name="position" id="position_valv2">
+                      <input  type="text" class="form-control" name="num_hr" id="num_hr" disabled>
                       </input>
                     </div>
                 </div>
