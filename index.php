@@ -1,69 +1,54 @@
 <?php session_start(); ?>
 <?php include 'header.php'; ?>
 <body>
-<div class="login-box reloj" style="position: relative; left: 355px; top: 5%;">
-    <div class="login-logo">
-      <p id="time" class="bold"></p>
-      <h1 id="date"></h1>
-    </div>
-    <div class="alert alert-success alert-dismissible mt20 text-center" style="display:none;">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <span class="result"><i class="icon fa fa-check"></i> <span class="message"></span></span>
-    </div>
-    <div class="alert alert-danger alert-dismissible mt20 text-center" style="display:none;">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <span class="result"><i class="icon fa fa-warning"></i> <span class="message"></span></span>
-    </div>
-</div>
 
-
-<div class="container" style="position: relative; left: 355px;">
-<div class="container" id="loginform">
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
-      <h4 class="login-box-msg">Ingrese su ID de Empleado</h4>
-
-      <form id="attendance">
-          <div class="form-group mx-sm-4 pt-3">
-            <select class="form-control" placeholder="Elegir Turno" name="status">
+<div class="asistencia">
+  <div class="asistencia__contend">
+    <div class="asistencia__campos">
+      <h1 class="asistencia__tittle">Hola, te saluda Neonhouseled SAC</h1>
+      <div class="alert alert-dismissible mt20 text-center success__alert" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span class="result"><span class="message"></span></span>
+      </div>
+      <div class="alert alert-dismissible mt20 text-center danger__alert tittle__error" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span class="result"><span class="message"></span></span>
+      </div>
+      <div class="login-logo">
+        <p id="time" class="bold time-asistencia"></p>
+        <h1 id="date" class="fecha__cambio"></h1>
+      </div>
+      <div class="alert alert-dismissible mt20 text-center danger__alert" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span class="result"><i class="icon fa fa-warning"></i> <span class="message"></span></span>
+      </div>
+      <form id="attendance" class="asistencia__form-in">
+          <div class="form-group mx-sm-4 pt-3 asistencia__form">
+            <select class="form-control asistencia-imput" placeholder="Elegir Turno" name="status">
               <option value="in">Hora de Entrada</option>
               <option value="out">Hora de Salida</option>
             </select>
           </div>
- 
-             <div class="form-group mx-sm-4 pt-3"> 
-                  <input class="form-control" placeholder="Codigo de Asistencia" id="employee" name="employee" required>
-                  <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
-             </div>
-             <br>
-             <div class="form-group mx-sm-4 pb-2">
-                <button type="submit" class="btn btn-block ingresar" name="signin"><i class="fa fa-sign-in"></i> Login</button>
-             </div>
-
+          <div class="form-group mx-sm-4 pt-3 asistencia__form""> 
+              <input class="form-control asistencia-imput code__imput" placeholder="Codigo de Asistencia" id="employee" name="employee" required>
+              <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+          </div>
+          <br>
+          <div onclick="removeImput()" class="form-group mx-sm-4 pb-2 asistencia__form"">
+            <button type="submit" class="btn btn-block ingresar asistencia-imput login-btn__asistencia" name="signin"><i class="fa fa-sign-in"></i> Login</button>
+          </div>
       </form>
+      <div class="alert alert-dismissible mt20 text-center success__alert aisistencia__frace2" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span class="result">¡Conquista el mundo digital en Digimedia!</span>
+      </div>
+    </div>
+    <div class="asistencia__frase">
+      "Te esfuerzo de hoy sera tu exito de mañana."
     </div>
   </div>
 </div>
-</div>
 
-<?php
-  $n = rand(1,3)
-?>
-<div class="card">
-<img src="admin/Backend/imagenes/image_<?php echo $n?>.png" style="width: 100%;"/>
-</div>
-
-  
-<!--
-<table width="280" cellspacing="1" cellpadding="3" border="5" style="position:relative; left: 190px;">
-<tr>
-   <td><font color="#FFFFFF" face="arial, verdana, helvetica">
-              <b>Recuadro curioso con HTML</b>
-      </font>
-  </td>
-</tr>
-</table>
--->
 
 <?php include 'scripts.php' ?>
 <script type="text/javascript">
@@ -95,12 +80,12 @@ moment.lang('es', {
       success: function(response){
         if(response.error){
           $('.alert').hide();
-          $('.alert-danger').show();
+          $('.danger__alert').show();
           $('.message').html(response.message);
         }
         else{
           $('.alert').hide();
-          $('.alert-success').show();
+          $('.success__alert').show();
           $('.message').html(response.message);
           $('#employee').val('');
         }
@@ -109,6 +94,21 @@ moment.lang('es', {
   });
     
 });
+</script>
+<script type="text/javascript">
+  let ocultarImput = document.querySelector(".asistencia__form-in");
+  let title = document.querySelector(".asistencia__tittle");
+  let caracter = document.querySelector(".code__imput");
+  let cambioTime = document.querySelector(".time-asistencia");
+  let cambioFecha = document.querySelector(".fecha__cambio");
+  function removeImput() {
+    if (caracter.value.length > 0) {
+      ocultarImput.classList.add("remove__imput");
+      title.classList.add("remove__imput");
+      cambioTime.classList.add("time-asistencia2");
+      cambioFecha.classList.add("time-asistencia3");
+    }
+  }
 </script>
 </body>
 </html>

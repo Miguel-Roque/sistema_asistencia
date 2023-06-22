@@ -1,9 +1,10 @@
 
-body {
-    background-image: url(../img/Fond2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+body{
+  background-image: url(../img/ma-equipo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
 }
 
 .formulario {
@@ -145,10 +146,128 @@ body {
     }
 }
 
-@media only screen and (max-width: 767px) {
-
-body {
-  background-image: url(../img/respon.jpg);
-  }
-
+.asistencia{
+  background-color: rgba(255, 255, 255, 0);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.asistencia__contend{
+  background-color: rgba(255, 255, 255, 0.626);
+  width: 750px;
+  border-radius: 20px;
+  display: flex;
+  zoom: 1.2;
+}
+.asistencia__frase{
+  width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1E3D8F;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  font-size: 2em;
+  font-weight: 1000;
+  padding: 10px;
+}
+.asistencia__campos{
+  width: 100%;
+}
+.asistencia__tittle{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 1000;
+  color: #304b9c;
+}
+.time-asistencia{
+  font-size: 0.7em;
+}
+.time-asistencia2{
+  font-size: 0.8em;
+  font-weight: 1000;
+  color: #fff;
+  text-shadow: -1px -1px 0 #304b9c, 1px -1px 0 #304b9c, -1px 1px 0 #304b9c, 1px 1px 0 #304b9c;
+}
+.time-asistencia3{
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: -1px -1px 0 #304b9c, 1px -1px 0 #304b9c, -1px 1px 0 #304b9c, 1px 1px 0 #304b9c;
+}
+.asistencia-imput{
+  width: 200px;
+}
+.asistencia__form{
+  display: flex;
+  justify-content: center;
+}
+.asistencia-imput{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  height: 30px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 650;
+}
+.asistencia-imput:focus{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+}
+.asistencia-imput:hover{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+.login-btn__asistencia{
+  background-color: #1E3D8F;
+  color: #fff;
+  padding: 0;
+}
+.remove__imput{
+  display: none;
+}
+.bienvenida{
+  text-align: center;
+  font-weight: 1000;
+  color: #304b9c;
+}
+.success__alert{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 1000;
+  color: #304b9c;
+}
+.message{
+  color: #304b9c;
+  font-size: 1.4em;
+}
+.danger__alert{
+  background-color: rgba(132, 60, 50, 0.505);
+  border-radius: 20px 0 0 20px;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  padding: 15px;
+}
+.aisistencia__frace2{
+  background-color: #304b9c8c;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  border-radius: 20px 0 0 20px;
+  font-weight: 800;
+}
+.tittle__error{
+  background-color: rgba(255, 255, 255, 0);
 }

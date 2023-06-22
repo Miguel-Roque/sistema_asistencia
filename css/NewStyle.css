@@ -23,19 +23,6 @@ img {
     
   }
 
-
-
-@media only screen and (max-width: 870px) {
-    .container{
-        position: relative;
-        left: -350px;
-    }
-    
-    .login-logo{
-        position: relative;
-        right: 350px;
-    }
-}
 @media only screen and (max-width: 870px) {
     .card{
         position: absolute;
