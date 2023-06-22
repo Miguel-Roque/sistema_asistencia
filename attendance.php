@@ -46,7 +46,7 @@ date_default_timezone_set('America/Lima');
 					//
 					$sql = "INSERT INTO attendance (employee_id, date, time_in, status) VALUES ('$id', '$date_now', '$lognow', '$logstatus')";
 					if($conn->query($sql)){
-						$output['message'] = '<p class="bienvenida">¡Bienvenido!</p>'.$row['firstname'].' '.$row['lastname'];
+						$output['message'] = '<p class="bienvenida">¡Hola, '.$row['firstname'].' '.$row['lastname'].'!</p> <p class="registro__exitoso">Se ha registrado tu ingreso</p>';
 					}
 					else{
 						$output['error'] = true;
@@ -81,7 +81,7 @@ date_default_timezone_set('America/Lima');
 						$sql = "UPDATE attendance SET time_out = '$lognow1' WHERE id = '".$row['uid']."'";
 						if($conn->query($sql)){
 							
-							$output['message'] = '<p class="bienvenida">¡Hasta luego!</p> '.$row['firstname'].' '.$row['lastname'];
+							$output['message'] = '<p class="bienvenida">¡Adios, '.$row['firstname'].' '.$row['lastname'].'!</p> <p class="registro__exitoso">Se ha registrado tu salida</p>';
 
 							$sql = "SELECT * FROM attendance WHERE id = '".$row['uid']."'";
 							$query = $conn->query($sql);

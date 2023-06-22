@@ -21,32 +21,12 @@ body{
     transition: 0.5s ease-in;
     outline: none;
     color: white;
-    box-shadow: inset 0 0 5px #6d6e1d, 0 0 5px #6d6e1d;
     border: 2px solid #fff;
 }
 
-.form-control:focus {
-    background: none;
-    box-shadow: none;
-    outline: none;
-    box-shadow: inset 0 0 5px #fcff31, 0 0 5px #fcff31;
-    border: 2px solid #fff;
-}
 
-.form-control::placeholder {
-    color: white;
-}
 
-.ingresar {
-    background: #2C7482;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 700!important;
-    box-shadow: inset 0 0 5px #00CC99, 0 0 5px #00CC99;
-    border: 2px solid #fff;
-    color: white;
-    transition: 0.5s ease-in;
-}
+
 
 /*
   0 0 30px rgba(0, 0, 0, 0.568);
@@ -159,65 +139,51 @@ body{
   padding: 10px;
 }
 .asistencia__contend{
-  background-color: rgba(255, 255, 255, 0.626);
-  width: 750px;
-  border-radius: 20px;
+  background-color: #1e3c8fb5;
+  width: 700px;
+  border-radius: 30px;
   display: flex;
   zoom: 1.2;
-}
-.asistencia__frase{
-  width: 300px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1E3D8F;
-  color: #fff;
-  border-radius: 0 20px 20px 0;
-  font-size: 2em;
-  font-weight: 1000;
-  padding: 10px;
 }
 .asistencia__campos{
   width: 100%;
 }
 .asistencia__tittle{
-  margin-top: 30px;
+  margin: 30px 100px;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 1000;
-  color: #304b9c;
-}
-.time-asistencia{
-  font-size: 0.7em;
+  color: #ffffff;
+  font-size: 3.5em;
 }
 .time-asistencia2{
-  font-size: 0.8em;
-  font-weight: 1000;
+  font-size: 0.65em;
+  font-weight: 400;
   color: #fff;
-  text-shadow: -1px -1px 0 #304b9c, 1px -1px 0 #304b9c, -1px 1px 0 #304b9c, 1px 1px 0 #304b9c;
 }
 .time-asistencia3{
-  font-size: 0.8em;
-  font-weight: 500;
+  font-size: 0.65em;
+  font-weight: 400;
+  font-weight: 400;
   color: #fff;
-  text-shadow: -1px -1px 0 #304b9c, 1px -1px 0 #304b9c, -1px 1px 0 #304b9c, 1px 1px 0 #304b9c;
 }
 .asistencia-imput{
   width: 200px;
 }
 .asistencia__form{
   display: flex;
+  margin: 0;
   justify-content: center;
 }
 .asistencia-imput{
   background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  color: rgb(114, 114, 114);
   border: none;
   height: 30px;
+  font-size: 1.3em;
   text-align: center;
-  border-radius: 8px;
-  font-weight: 650;
+  border-radius: 30px;
+  font-weight: 400;
 }
 .asistencia-imput:focus{
   background-color: #ffffff;
@@ -229,9 +195,12 @@ body{
   color: rgb(0, 0, 0);
 }
 .login-btn__asistencia{
-  background-color: #1E3D8F;
+  background-color: #5eb130;
   color: #fff;
   padding: 0;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 .remove__imput{
   display: none;
@@ -239,26 +208,18 @@ body{
 .bienvenida{
   text-align: center;
   font-weight: 1000;
-  color: #304b9c;
+  color: #ffffff;
 }
 .success__alert{
   margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 1000;
-  color: #304b9c;
+  color: #000000;
 }
 .message{
-  color: #304b9c;
+  color: #fdfdfd;
   font-size: 1.4em;
-}
-.danger__alert{
-  background-color: rgba(132, 60, 50, 0.505);
-  border-radius: 20px 0 0 20px;
-  color: #fff;
-  margin: 0;
-  font-weight: 700;
-  padding: 15px;
 }
 .aisistencia__frace2{
   background-color: #304b9c8c;
@@ -270,4 +231,86 @@ body{
 }
 .tittle__error{
   background-color: rgba(255, 255, 255, 0);
+}
+.select__imput{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(../images/down.png);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: right 15px center;
+  padding-right: 20px;
+  width: 200px;
+}
+.code__imput::placeholder {
+  color: #777777;
+  font-size: 14px;
+  font-weight: 200;
+  font-family: Arial, sans-serif;
+}
+.login-time_asistencia{
+  margin-bottom: 0;
+  margin-bottom: 10px;
+}
+
+/*Ingreso*/
+.asistencia__contend2{
+  background-color: #ffffff87;
+}
+.registro__exitoso{
+  margin-top: 15px;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: #fff;
+}
+.asistencia__frace-time{
+  display: flex;
+  justify-content: center;
+}
+.aistencia__img-frace{
+  width: 80px;
+}
+.asistencia__frace{
+  background-color: #5eb130;
+  border-radius: 30px;
+  width: 300px;
+  padding: 20px 10px;
+  margin: 0;
+  position: relative;
+  top: -30px;
+  left: 30px;
+}
+.asistencia__frace-on{
+  margin: 0;
+  margin: 0;
+}
+.frase{
+  color: #fff;
+  font-weight: 500;
+  font-size: 1em;
+}
+.btn_perfil-estadisticas{
+  font-size: .8em;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  width: 200px;
+  position: relative;
+  transition: .3s;
+  top: -20px;
+}
+.btn_perfil-estadisticas:hover{
+  background-color: #5eb130;
+}
+.asistencia-sep{
+  margin: 0;
+  padding: 0;
+}
+.volver-btn{
+  background-color: #5eb130;
+  color: #fff;
+  position: relative;
+  left: 20px;
 }
