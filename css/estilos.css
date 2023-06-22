@@ -6,6 +6,9 @@ body{
   background-position: left top;
   background-attachment: fixed;
 }
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 .formulario {
     background: rgba(0, 0, 0, .1);
@@ -154,7 +157,8 @@ body{
   text-align: center;
   font-weight: 1000;
   color: #ffffff;
-  font-size: 3.5em;
+  font-size: 3.2em;
+  font-family: 'Poppins', sans-serif;
 }
 .time-asistencia2{
   font-size: 0.65em;
@@ -300,6 +304,7 @@ body{
   position: relative;
   transition: .3s;
   top: -20px;
+  color: #1e3d8f;
 }
 .btn_perfil-estadisticas:hover{
   background-color: #5eb130;

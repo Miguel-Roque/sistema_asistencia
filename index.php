@@ -52,8 +52,8 @@
               <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
           </div>
           <br>
-          <div onclick="removeImput()" class="form-group mx-sm-4 pb-2 asistencia__form"">
-            <button type="submit" class="btn btn-block ingresar asistencia-imput login-btn__asistencia" name="signin">ENTRAR</button>
+          <div class="form-group mx-sm-4 pb-2 asistencia__form"">
+            <button type="submit" onclick="removeImput()" class="btn btn-block ingresar asistencia-imput login-btn__asistencia" name="signin">ENTRAR</button>
           </div>
       </form>
     </div>
