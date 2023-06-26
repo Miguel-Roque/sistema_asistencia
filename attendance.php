@@ -29,7 +29,7 @@ date_default_timezone_set('America/Lima');
 				$query = $conn->query($sql);
 				if($query->num_rows > 0){
 					$output['error'] = true;
-					$output['message'] = 'Has registrado tu entrada por hoy';
+					$output['message'] = 'Ya has registrado tu entrada por hoy';
 				}
 				else{
 					//updates
@@ -65,7 +65,7 @@ date_default_timezone_set('America/Lima');
 					$row = $query->fetch_assoc();
 					if($row['time_out'] != '00:00:00'){
 						$output['error'] = true;
-						$output['message'] = 'Has registrado tu salida satisfactoriamente por el día de hoy';
+						$output['message'] = 'Ya has registrado tu salida por hoy';
 					}
 					else{
 						
@@ -127,7 +127,7 @@ date_default_timezone_set('America/Lima');
 		}
 		else{
 			$output['error'] = true;
-			$output['message'] = 'ID de empleado no encontrado';
+			$output['message'] = '</br>'.'ID de empleado no encontrado' ;
 		}
 		
 	}

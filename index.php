@@ -6,18 +6,24 @@
   <div class="asistencia__contend">
     <div class="asistencia__campos">
       <h1 class="asistencia__tittle">¡Hola, Neonhouseled SAC te da la bienvenida!</h1>
-      <div class="alert alert-dismissible mt20 text-center success__alert" style="display:none;">
+      <div class="alert alert-dismissible mt20 text-center success__alert name__lert" style="display:none;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <span class="result"><span class="message"></span></span>
       </div>
       <div class="alert alert-dismissible mt20 text-center danger__alert tittle__error" style="display:none;">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <span class="result"> <i class="icon fa fa-warning"></i><span class="message"></span></span>
+        <span class="result">
+          <img src="img/alert.png" alt="alert" class="img_alert"><br>
+          <span class="message"></span>
+        </span>
       </div>
       <div class="asistencia__frace-time">
         <div class="login-logo login-time_asistencia">
           <h1 id="date" class="fecha__cambio time-asistencia3"></h1>
-          <p id="time" class="time-asistencia time-asistencia2"></p>
+          <body onload="displayTime();">
+            <div id="clock"></div>
+          </body>
+          <p style="display:none;"  id="time" class="time-asistencia time-asistencia2"></p>
           <div class="alert alert-dismissible mt20 text-center success__alert asistencia__frace-on asistencia-sep" style="display:none;">
           <span class="result ">
             <button type="submit" class=" btn_perfil-estadisticas" name="">VISITAR MI PERFIL</button><br>
@@ -25,12 +31,9 @@
           </span>
         </div>
         </div>
-        <div class="alert alert-dismissible mt20 text-center success__alert asistencia__frace-on" style="display:none;">
+        <div class="alert alert-dismissible text-center success__alert asistencia__frace-on " style="display:none;">
           <span class="result">
-            <div class="asistencia__frace">
-                <img class="aistencia__img-frace" src="https://cdn-icons-png.flaticon.com/512/3989/3989540.png" alt="img-motivacion"> <br>
-                <span class="frase">¡Tu esfuerzo de hoy será el éxito de mañana!</span>
-            </div>
+            <img class="aistencia__img-frace" src="https://cdn-icons-png.flaticon.com/512/3989/3989540.png" alt="img-motivacion"> <br>
           </span>
         </div>
       </div>
@@ -44,7 +47,7 @@
             <select class="form-control asistencia-imput select__imput" placeholder="Elegir Turno" name="status">
               <option value="in">INGRESO</option>
               <option value="out">SALIDA</option>
-              <option value="">MI PERFIL</option>
+              <!--<option>MI PERFIL</option>-->
             </select>
           </div>
           <div class="form-group mx-sm-4 pt-3 asistencia__form"> 
@@ -53,9 +56,40 @@
           </div>
           <br>
           <div class="form-group mx-sm-4 pb-2 asistencia__form"">
-            <button type="submit" onclick="removeImput()" class="btn btn-block ingresar asistencia-imput login-btn__asistencia" name="signin">ENTRAR</button>
+            <button type="submit" onclick="removeImput(); stopTime()" class="btn btn-block ingresar asistencia-imput login-btn__asistencia" name="signin">ENTRAR</button>
           </div>
       </form>
+      <div class="alert alert-dismissible text-center success__alert asistencia__frace-on frase__down" style="display:none;">
+      <span class="result">
+        <div class="asistencia__frace">
+            <span class="frase">¡Tu esfuerzo de hoy será el éxito de mañana!</span>
+        </div>
+      </span>
+    </div>
+    <title>Reloj Funcional en PHP con Botón de Pausa</title>
+    <script type="text/javascript">
+        var timer;
+        function displayTime() {
+            var time = new Date();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            seconds = seconds < 10 ? '0'+seconds : seconds;
+            var currentTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+            document.getElementById('clock').innerHTML = currentTime;
+            timer = setTimeout(displayTime, 1000);
+        }
+        function stopTime() {
+          let caracter = document.querySelector(".code__imput").value;
+          if (caracter.length > 0) {
+            clearTimeout(timer);
+          }
+        }
+    </script>
     </div>
   </div>
 </div>
